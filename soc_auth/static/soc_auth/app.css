@@ -7,11 +7,39 @@ height: 45px;
 width: 300px;
 padding:0 16px;
 font-size: 18px;
-background-color: rgb(250,250,250);
 margin:0 auto;
+background-color: rgb(253, 226, 201);
 }
 
+h1 {
+    padding-top: 25px;
+    text-align: center;
+}
+#outer {
+    background-color: rgb(253, 226, 201);
+    height : 100%;
+}
+#footer {
+    background-color: lightslategrey;
+}
+
+header {
+    background-color: lightslategrey;
+}
 #inner {
     text-align: center;
     margin: 0 auto;
+}
+label {
+    display: inline-block;
+}
+
+
+#top {
+    text-align: right;
+}
+
+a#top {
+    display:block;
+    margin-left: 92%;
 }

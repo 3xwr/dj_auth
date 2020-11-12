@@ -13,10 +13,11 @@
 <body>
   <header>
     {% if user.is_authenticated %}
-      <p>Logged as {{ user.username }}</p>
-      <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+      <p id ="top">Logged as {{ user.username }}</p>
+      <a class="btn btn-primary" href="{% url 'logout' %}" id = "top">Logout</a>
   </header>
   <div  id = "outer">
+    <h1>Edit User Data</h1>
       <div id = "user-pfp" id="inner">
         {% if userprofile.avatar %}
         <img style = "height : 150; width :150;display: block; margin: 0 auto;" alt = "img" src="{{userprofile.avatar.url}}">
@@ -28,17 +29,13 @@
         <button type = "submit" class = "save btn btn-default">Save</button>
       </form>
     </div>
-      {% if img_obj %}
-        <h3>Succesfully uploaded : {{img_obj.title}}</h3>
-        <img src="{{img_obj.image.url}}" alt="connect" style="max-height:300px">
-      {% endif %}
     {% else %}
       <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
         Login
       </a>
     {% endif %}
   </div>
-  <footer></footer>
+  <div id="footer"></div>
 
 
   </div>
