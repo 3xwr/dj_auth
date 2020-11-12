@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>My fake blog!</title>
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+</head>
+<body>
+  <div class="jumbotron">
+    <h1>My fake blog!</h1>
+    {% if user.is_authenticated %}
+      <p>Logged as {{ user.username }}</p>
+      <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+    <form method = "POST" enctype="multipart/form-data" class = "post-form">{% csrf_token %}
+        {{form.as_p}}
+        <button type = "submit" class = "save btn btn-default">Save</button>
+      </form>
+      {% if img_obj %}
+        <h3>Succesfully uploaded : {{img_obj.title}}</h3>
+        <img src="{{img_obj.image.url}}" alt="connect" style="max-height:300px">
+      {% endif %}
+      
+    {% else %}
+      <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+        Login
+      </a>
+      {% endif %}
+  </div>
+
+</body>
+</html>
