@@ -5,12 +5,14 @@ from .models import UserProfile
 
 class UserProfileForm(forms.ModelForm):
 
-
     class Meta:
         model = UserProfile
         #fields = '__all__'
         
         fields = ['avatar', 'name', 'description']
+        widgets = {
+            'avatar' : forms.FileInput(),
+        }
     
     
     def clean_avatar(self):
