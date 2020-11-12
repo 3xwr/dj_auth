@@ -4,26 +4,25 @@
 <head>
   <meta charset="utf-8">
 
-  <title>My fake blog!</title>
+  <title>Django Edit User</title>
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="{% static 'app.css' %}">
+  <link rel="stylesheet" type = "text/css" href="{% static 'soc_auth/app.css' %}">
 </head>
 <body>
-  <header></header>
-  <h1>HI!</h1>
-  <div class="jumbotron">
+  <header>
     {% if user.is_authenticated %}
       <p>Logged as {{ user.username }}</p>
       <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
-      <div id = "user-pfp">
-        <p>asd {{user.userprofile.name}}</p>
+  </header>
+  <div  id = "outer">
+      <div id = "user-pfp" id="inner">
         {% if userprofile.avatar %}
-        <img style = "width: 250px; height: 250px" alt = "img" src="{{userprofile.avatar.url}}">
+        <img style = "height : 150; width :150;display: block; margin: 0 auto;" alt = "img" src="{{userprofile.avatar.url}}">
         {% endif %}
       </div>
-    <div class = "form-group">
+    <div class = "form-group" class = "centered-div" id = "inner">
       <form method = "POST" enctype="multipart/form-data" class = "post-form">{% csrf_token %}
         {{form.as_p}}
         <button type = "submit" class = "save btn btn-default">Save</button>

@@ -77,7 +77,7 @@ ROOT_URLCONF = 'auth_proj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/dx/dj_proj/auth_proj/soc_auth/templates'],
+        'DIRS': [''],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -140,6 +140,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 MEDIA_ROOT=BASE_DIR / 'Media'
 MEDIA_URL = '/media-files/'
