@@ -24,5 +24,6 @@ urlpatterns = [
     path('soc_auth/', include(sock_urls)),
     path('', include('social_django.urls', namespace='social')),
     path('logout/', LogoutView.as_view(), name = 'logout'),
+    path('', sock_urls.views.index, name = 'index'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
